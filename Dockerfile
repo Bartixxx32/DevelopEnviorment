@@ -3,6 +3,9 @@ ARG DEBIAN_FRONTEND=noninteractive
 WORKDIR /root
 RUN apt update
 RUN apt-get install --no-install-recommends -y apt-transport-https
+RUN apt-get install --no-install-recommends -y ca-certificates
+RUN apt-get install --no-install-recommends -y gnupg
+RUN apt-get install --no-install-recommends -y curl
 RUN apt-get install --no-install-recommends -y wget 
 RUN apt-get install --no-install-recommends -y aria2 
 RUN apt-get install --no-install-recommends -y youtube-dl
@@ -27,6 +30,11 @@ RUN apt-get install --no-install-recommends -y unzip
 RUN apt-get install --no-install-recommends -y nano 
 RUN apt-get install --no-install-recommends -y ffmpeg
 RUN apt-get install --no-install-recommends -y pandoc
+
+
+RUN echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+RUN curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
+RUN apt-get install -y google-cloud-sdk
 
 RUN wget https://packages.microsoft.com/config/ubuntu/20.10/packages-microsoft-prod.deb -O packages-microsoft-prod.deb ; dpkg -i packages-microsoft-prod.deb ; rm -r packages-microsoft-prod.deb
 RUN apt-get install -y dotnet-sdk-5.0
