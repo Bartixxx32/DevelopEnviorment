@@ -22,6 +22,7 @@ RUN apt-get install --no-install-recommends -y gradle
 RUN apt-get install --no-install-recommends -y golang 
 RUN apt-get install --no-install-recommends -y mono-devel
 RUN apt-get install --no-install-recommends -y rustc 
+RUN apt-get install --no-install-recommends -y cargo 
 RUN apt-get install --no-install-recommends -y cmake
 RUN apt-get install --no-install-recommends -y lynx 
 RUN apt-get install --no-install-recommends -y git 
