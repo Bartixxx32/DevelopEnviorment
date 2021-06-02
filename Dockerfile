@@ -55,3 +55,8 @@ RUN apt-get install -y kubectl
 RUN wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb ; dpkg -i packages-microsoft-prod.deb ; rm -r packages-microsoft-prod.deb
 RUN apt-get update
 RUN apt-get install -y dotnet-sdk-5.0
+
+
+RUN apt-get install -y zsh git curl
+RUN sh -c "$(curl -fsSL sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+ENTRYPOINT [ "/bin/zsh" ]
