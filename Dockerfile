@@ -33,6 +33,7 @@ RUN apt-get install --no-install-recommends -y nano
 RUN apt-get install --no-install-recommends -y ffmpeg
 RUN apt-get install --no-install-recommends -y pandoc
 RUN apt-get install --no-install-recommends -y openssh-client 
+RUN apt-get install --no-install-recommends -y neofetch
 
 
 RUN echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
