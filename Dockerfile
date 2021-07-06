@@ -1,6 +1,10 @@
 FROM ubuntu:latest
 ARG DEBIAN_FRONTEND=noninteractive
+
+ENV PATH=/root/.cargo/bin:$PATH
+
 WORKDIR /root
+
 RUN apt update
 RUN apt-get install --no-install-recommends -y apt-transport-https
 RUN apt-get install --no-install-recommends -y ca-certificates
@@ -21,8 +25,6 @@ RUN apt-get install --no-install-recommends -y default-jre
 RUN apt-get install --no-install-recommends -y gradle 
 RUN apt-get install --no-install-recommends -y golang 
 RUN apt-get install --no-install-recommends -y mono-devel
-RUN apt-get install --no-install-recommends -y rustc 
-RUN apt-get install --no-install-recommends -y cargo 
 RUN apt-get install --no-install-recommends -y cmake
 RUN apt-get install --no-install-recommends -y lynx 
 RUN apt-get install --no-install-recommends -y git 
@@ -34,6 +36,9 @@ RUN apt-get install --no-install-recommends -y ffmpeg
 RUN apt-get install --no-install-recommends -y pandoc
 RUN apt-get install --no-install-recommends -y openssh-client 
 RUN apt-get install --no-install-recommends -y neofetch
+RUN apt-get install --no-install-recommends -y upx
+
+RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
 
 
 RUN echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
