@@ -63,7 +63,9 @@ RUN apt-get update
 RUN apt-get install -y dotnet-sdk-5.0
 
 
-RUN apt-get install -y zsh git curl
+RUN apt-get install -y zsh 
+RUN apt-get install -y git 
+RUN apt-get install -y curl
 
 
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
