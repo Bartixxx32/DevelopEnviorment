@@ -5,7 +5,8 @@ ENV PATH=/root/.cargo/bin:$PATH
 
 WORKDIR /root
 
-RUN apt update
+RUN apt-get update
+RUN apt-get upgrade -y
 RUN apt-get install --no-install-recommends -y apt-transport-https
 RUN apt-get install --no-install-recommends -y ca-certificates
 RUN apt-get install --no-install-recommends -y gnupg
@@ -44,28 +45,28 @@ RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
 RUN echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
 RUN curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
 RUN apt-get update
-RUN apt-get install -y google-cloud-sdk
-RUN apt-get install -y google-cloud-sdk-app-engine-python
-RUN apt-get install -y google-cloud-sdk-app-engine-python-extras
-RUN apt-get install -y google-cloud-sdk-app-engine-java
-RUN apt-get install -y google-cloud-sdk-app-engine-go
-RUN apt-get install -y google-cloud-sdk-bigtable-emulator
-RUN apt-get install -y google-cloud-sdk-cbt
-RUN apt-get install -y google-cloud-sdk-cloud-build-local
-RUN apt-get install -y google-cloud-sdk-datalab
-RUN apt-get install -y google-cloud-sdk-datastore-emulator
-RUN apt-get install -y google-cloud-sdk-firestore-emulator
-RUN apt-get install -y google-cloud-sdk-pubsub-emulator
-RUN apt-get install -y kubectl
+RUN apt-get install --no-install-recommends -y google-cloud-sdk
+RUN apt-get install --no-install-recommends -y google-cloud-sdk-app-engine-python
+RUN apt-get install --no-install-recommends -y google-cloud-sdk-app-engine-python-extras
+RUN apt-get install --no-install-recommends -y google-cloud-sdk-app-engine-java
+RUN apt-get install --no-install-recommends -y google-cloud-sdk-app-engine-go
+RUN apt-get install --no-install-recommends -y google-cloud-sdk-bigtable-emulator
+RUN apt-get install --no-install-recommends -y google-cloud-sdk-cbt
+RUN apt-get install --no-install-recommends -y google-cloud-sdk-cloud-build-local
+RUN apt-get install --no-install-recommends -y google-cloud-sdk-datalab
+RUN apt-get install --no-install-recommends -y google-cloud-sdk-datastore-emulator
+RUN apt-get install --no-install-recommends -y google-cloud-sdk-firestore-emulator
+RUN apt-get install --no-install-recommends -y google-cloud-sdk-pubsub-emulator
+RUN apt-get install --no-install-recommends -y kubectl
 
 RUN wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb ; dpkg -i packages-microsoft-prod.deb ; rm -r packages-microsoft-prod.deb
 RUN apt-get update
-RUN apt-get install -y dotnet-sdk-5.0
+RUN apt-get install --no-install-recommends -y dotnet-sdk-5.0
 
 
-RUN apt-get install -y zsh 
-RUN apt-get install -y git 
-RUN apt-get install -y curl
+RUN apt-get install --no-install-recommends -y zsh 
+RUN apt-get install --no-install-recommends -y git 
+RUN apt-get install --no-install-recommends -y curl
 
 
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
