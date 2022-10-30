@@ -59,11 +59,6 @@ RUN apt-get install --no-install-recommends -y google-cloud-sdk-firestore-emulat
 RUN apt-get install --no-install-recommends -y google-cloud-sdk-pubsub-emulator
 RUN apt-get install --no-install-recommends -y kubectl
 
-RUN wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb ; dpkg -i packages-microsoft-prod.deb ; rm -r packages-microsoft-prod.deb
-RUN apt-get update
-RUN apt-get install --no-install-recommends -y dotnet-sdk-5.0
-
-
 RUN apt-get install --no-install-recommends -y zsh 
 RUN apt-get install --no-install-recommends -y git 
 RUN apt-get install --no-install-recommends -y curl
